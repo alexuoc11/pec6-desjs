@@ -1,0 +1,24 @@
+.positive {
+    background-color: green;
+    border: 10px solid greenyellow;
+    width: 350px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.negative {
+    background-color: red;
+    border: 10px solid rebeccapurple;
+    width: 350px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.imagen-vino{
+    height: 300px;
+    width: auto;
+}
+
+p, span {
+    font-weight: 700;
+}

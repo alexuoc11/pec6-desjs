@@ -1,0 +1,4 @@
+app-wineitem {
+    display: flex;
+    flex-direction: row;
+}

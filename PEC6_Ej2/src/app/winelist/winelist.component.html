@@ -1,0 +1,3 @@
+<div *ngFor="let wineoflist of list$ | async">
+    <app-wineitem [wine]="wineoflist" (quantity)="update($event)" >{{wineoflist}</app-wineitem>
+</div>

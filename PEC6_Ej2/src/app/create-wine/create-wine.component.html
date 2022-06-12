@@ -1,0 +1,52 @@
+<h2>Crear nuevo vino!</h2>
+
+<div *ngIf="message">{{message}}</div>
+<div class="form-group">
+    <div class="form-group">
+        <form [formGroup]="wineForm" (ngSubmit)="onSubmit()">      
+            <div class="wine-name">
+                <input type="text"
+                        placeholder="Wine Name"
+                        name="wineName"
+                        formControlName="name"
+                        required>  
+                <div *ngIf="wineForm.get('name')?.errors?.['required']">
+                    <span>Wine name is required</span> 
+                </div>                       
+            </div>
+            <div class="wine-code">
+                <input type="text"
+                        placeholder="Wine Image URL"
+                        formControlName="code"
+                        required
+                        pattern="^(https|http)(:\/\/)[-a-zA-Z0-9.\/]+(([.])([a-z]{2,3}))$">
+                        
+                <div *ngIf="wineForm.get('code')?.errors?.['required']">    
+                    <span>Wine Image URL is required</span>
+                </div>
+                <div *ngIf="wineForm.get('code')?.errors?.['pattern']">    
+                    <span>Wine Image URL is not correct</span>
+                </div>
+            </div>
+            <div class="wine-price">
+                <input type="number"
+                        placeholder="Wine Price"
+                        formControlName="price"
+                        min = 1
+                        required>
+                <div *ngIf="!wineForm.get('price')?.errors?.['min'] && wineForm.get('price')?.errors?.['required']">
+                    <span>Wine price is min 1</span> 
+                </div>          
+            </div>
+            <div class="wine-img">
+                <input type="text"
+                        placeholder="Wine ImageUrl"
+                        formControlName="imageUrl">      
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+  <p>Form Control value: {{ wineForm.value | json }}</p>    
+  <p>Form Control status: {{ wineForm.status | json }}</p>
+</div>
+

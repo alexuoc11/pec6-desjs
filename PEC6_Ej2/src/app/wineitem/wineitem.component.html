@@ -1,0 +1,7 @@
+<div [ngClass]="wineClasses">
+    <img [src]="wine.imageUrl" class="imagen-vino">
+    <div class="name"><p>{{wine.name}} : {{wine.price}}€</p></div>
+    <div>
+        <button (click)="update($event, '-')" *ngIf="isQuantityZero()">-</button> <span>{{wine.quantityInCart}}</span> <button (click)="update($event, '+')">+</button>
+    </div>
+</div>
